@@ -1,7 +1,12 @@
 export async function claim(state, action) {
+  ContractAssert(action.input.bounty, 'Bounty is required!')
+  ContractAssert(action.input.secret, 'Secret is required!')
 
-  const attempt = (await SmartWeave.crypto.hash(action.input.secret)).toString('base64')
+  ContractAssert(action.input.bounty.length === 43, 'Bounty should be valid identifier')
+
+  const attempt = (await SmartWeave.arweave.crypto.hash(action.input.secret)).toString('base64')
   const bounty = state.bounties[action.input.bounty]
+  ContractAssert(bounty, 'Bounty is not found!')
   if (bounty.done) {
     return { state, result: { message: 'Bounty is done!' } }
   }

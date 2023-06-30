@@ -3,9 +3,9 @@ import { claim } from './write/claim.js'
 
 export async function handle(state, action) {
   switch (action.input.function) {
-    case 'create':
+    case 'createBounty':
       return create(state, action)
-    case 'claim':
+    case 'claimBounty':
       return claim(state, action)
     default:
       new ContractError('function is not found!')
