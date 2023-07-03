@@ -13,7 +13,6 @@ export default {
         const encoder = new TextEncoder()
         const data = encoder.encode(txt)
         const result = await Arweave.crypto.hash(data)
-        //console.log(base64js.fromByteArray(result))
         return base64js.fromByteArray(result)
       }
     }
