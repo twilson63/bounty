@@ -4,7 +4,9 @@
 
 {#if isOpen}
   <div role="dialog" class="modal">
-    <div class="contents">
+    <div
+      class="flex flex-col bg-white rounded-md min-width-[240px] p-4 justify-between pointer-events-auto"
+    >
       <img
         src="https://g8way.io/IkMJRqi_0Xx_QhstK4WE3rsQqQxC07n84UagPgqGXfc"
         alt="Loading"
@@ -26,22 +28,5 @@
 
     /* allow click-through to backdrop */
     pointer-events: none;
-  }
-
-  .contents {
-    min-width: 240px;
-    border-radius: 6px;
-    padding: 16px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    pointer-events: auto;
-  }
-
-  .actions {
-    margin-top: 32px;
-    display: flex;
-    justify-content: flex-end;
   }
 </style>

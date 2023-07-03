@@ -1,5 +1,6 @@
 <script>
   export let value;
+  export let required = false;
 </script>
 
 <div>
@@ -7,6 +8,7 @@
     <slot />
     <input
       type="text"
+      {required}
       bind:value
       class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
     />

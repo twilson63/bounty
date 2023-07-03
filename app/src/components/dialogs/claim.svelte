@@ -28,7 +28,9 @@
 
 {#if isOpen}
   <div role="dialog" class="modal">
-    <div class="contents">
+    <div
+      class="flex flex-col bg-white rounded-md min-width-[240px] p-4 justify-between pointer-events-auto"
+    >
       <h2 class="text-3xl">Claim Bounty</h2>
       <div class="px-4 mt-4">
         <p class="text-xl mb-4">Enter Bounty Identifier and Secret to claim!</p>
@@ -58,22 +60,5 @@
 
     /* allow click-through to backdrop */
     pointer-events: none;
-  }
-
-  .contents {
-    min-width: 240px;
-    border-radius: 6px;
-    padding: 16px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    pointer-events: auto;
-  }
-
-  .actions {
-    margin-top: 32px;
-    display: flex;
-    justify-content: flex-end;
   }
 </style>

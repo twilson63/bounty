@@ -12,8 +12,8 @@
 
   let showCreate = false;
   let bounty = {
-    name: "Test",
-    secret: "test",
+    name: "",
+    secret: "",
     contract: "KTzTXT_ANmF84fWEKHzWURD1LWd9QaFR9yfYUwH2Lxw",
     qty: "1",
   };
@@ -52,7 +52,7 @@
       getList();
       openModal(Success);
     } else {
-      openModal(Error);
+      openModal(Error, { message: "Could not create bounty!" });
     }
   }
   function showClaim(contract) {
@@ -63,7 +63,7 @@
           if (result.ok) {
             openModal(Success);
           } else {
-            openModal(Error);
+            openModal(Error, { message: "Incorrect Claim Secret!" });
           }
           getList();
         },
@@ -87,10 +87,12 @@
             class="font-mono flex flex-col space-y-2"
             on:submit|preventDefault={handleSubmit}
           >
-            <Text bind:value={bounty.name}>Name</Text>
-            <Text bind:value={bounty.secret}>Secret</Text>
-            <Text bind:value={bounty.contract}>Reward Asset</Text>
-            <Text bind:value={bounty.qty}>Reward Qty</Text>
+            <Text required={true} bind:value={bounty.name}>Name</Text>
+            <Text required={true} bind:value={bounty.secret}>Secret</Text>
+            <Text required={true} bind:value={bounty.contract}
+              >Reward Asset</Text
+            >
+            <Text required={true} bind:value={bounty.qty}>Reward Qty</Text>
             <Button>Create Bounty</Button>
             <Button type="button" on:click={() => (showCreate = false)}
               >Cancel</Button
